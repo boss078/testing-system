@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attempt - Add</title>
+    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+</head>
+<body>
+<form method="post" action="#" th:action="@{/attempt/add}" th:object="${attempt}">
+    <input class="text-input" type="text" th:field="*{task}" value="0"><br>
+    <input class="text-input" type="text" th:field="*{code}" value="Paste your code here"><br>
+    <input type="submit">
+</form>
+</body>
+</html>

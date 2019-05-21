@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test - Add</title>
+    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+</head>
+<body>
+<form method="post" action="#" th:action="@{/task/{taskId}/test/add}" th:object="${test}">
+    <input class="text-input" type="text" th:field="*{in}" value="Enter the input of your test"><br>
+    <input class="text-input" type="text" th:field="*{out}" value="Enter the output of your test"><br>
+    <input type="submit" value="Create test">
+</form>
+</body>
+</html>

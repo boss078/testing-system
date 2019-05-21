@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task - Add</title>
+    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+</head>
+<body>
+<form method="post" action="#" th:action="@{/task/add}" th:object="${task}">
+    <input class="text-input" type="text" th:field="*{label}" value="Enter the label of your task"><br>
+    <input class="text-input" type="text" th:field="*{description}" value="Enter the description of your task"><br>
+    <input type="submit" value="Create task">
+</form>
+</body>
+</html>
