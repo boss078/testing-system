@@ -1,15 +1,28 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Test - Add</title>
-    <link rel = "stylesheet" type = "text/css" href = "style.css" />
-</head>
-<body>
-<form method="post" action="#" th:action="@{/task/{taskId}/test/add}" th:object="${test}">
-    <input class="text-input" type="text" th:field="*{in}" value="Enter the input of your test"><br>
-    <input class="text-input" type="text" th:field="*{out}" value="Enter the output of your test"><br>
-    <input type="submit" value="Create test">
-</form>
-</body>
-</html>
+
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Adding test</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+    <h2 class="row justify-content-md-center">
+        <span class="col-md-auto">Adding test</span>
+    </h2>
+    <form method="post" action="#" th:action="@{'/task/' + ${taskId} +'/test/add'}" th:object="${test}">
+    <h3 class="form-group row justify-content-md-left offset-md-1 w-75">
+            <label>Input of your test</label>
+            <input class="form-control" type="text" placeholder="Enter the input" th:field="*{input}">
+            <label>Output of your test</label>
+            <input class="form-control" type="text" placeholder="Enter the output" th:field="*{output}">
+            <span class="w-100"></span>
+            <br>
+            <input type="submit" class="btn btn-outline-success" value="Create test">
+            <span class="w-100"></span>
+            <a class="btn btn-outline-warning" th:href="@{'/task/' + ${taskId}}">To the task</a>
+            <a class="btn btn-outline-danger" th:href="@{'/main'}">To the main page</a>
+        </h3>
+    </form>
+    </body>
+    </html>

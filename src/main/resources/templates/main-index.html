@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="row justify-content-md-center">
+        <span class="col-md-auto" th:text="'Java Testing System'"></span>
+    </h1>
+    <br>
+    <h2 class="row justify-content-md-center">
+        <span class="col offset-md-1 w-75 p-2" th:text="'On JTS website you can solve tasks of other people or create your own one.'"></span>
+    </h2>
+    <span class="w-100"></span>
+    <a class="btn offset-md-1 btn-primary" th:href="@{'/task/all'}">To the list of tasks</a>
+    <a class="btn btn btn-outline-warning" th:href="@{'/attempt/all'}">To the list of attempts</a>
+    <a class="btn btn btn-secondary" th:href="@{'/task/add'}">Add new task</a>
+</body>
+</html>

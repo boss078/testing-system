@@ -2,9 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Test - Add - Done</title>
+    <title>Adding test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h5 th:text="'New test has added succesfully.'"></h5>
+    <h2 class="row justify-content-md-center">
+        <span class="col-md-auto">Adding test</span>
+    </h2>
+    <h3 class="row justify-content-md-left">
+        <span class="col offset-md-1 w-75 p-2">New test successfully created.</span>
+        <br>
+        <span class="w-100"></span>
+        <br>
+        <a class="offset-md-1 btn btn-primary" th:href="@{'/task/' + ${test.task.id}}">To the task</a>
+        <span class="w-100"></span>
+        <a class="offset-md-1 btn btn-outline-danger" th:href="@{'/main'}">To the main page</a>
+    </h3>
 </body>
 </html>

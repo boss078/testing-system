@@ -2,14 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Attempt - Add</title>
-    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+    <title>Adding attempt</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<form method="post" action="#" th:action="@{/attempt/add}" th:object="${attempt}">
-    <input class="text-input" type="text" th:field="*{task}" value="0"><br>
-    <input class="text-input" type="text" th:field="*{code}" value="Paste your code here"><br>
-    <input type="submit">
-</form>
+    <h2 class="row justify-content-md-center">
+        <span class="col-md-auto">Adding attempt</span>
+    </h2>
+    <form method="post" action="#" th:action="@{'/task/' + ${taskId} + '/attempt/add'}" th:object="${attempt}">
+        <h3 class="form-group offset-md-1">
+            <label>Code here</label>
+            <textarea class="form-control w-75 p-5" id="exampleFormControlTextarea1" rows="3" value="Paste your code here" th:field="*{code}"></textarea>
+            <button type="submit" class="btn btn-outline-success">Send</button>
+            <span class="w-100"></span>
+            <a class="btn btn-outline-warning" th:href="@{'/task/' + ${attempt.task.id}}">To the task</a>
+        </h3>
+    </form>
 </body>
 </html>

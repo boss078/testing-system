@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attempts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h2 class="row justify-content-md-center">
+     <span class="col-md-auto">Attempts:</span>
+    </h2>
+    <br>
+    <span th:each="attempt: ${attempts}">
+      <h3 class="row justify-content-md-left p-2">
+         <span class="offset-md-1" th:text="'Id: &#34'"></span><a th:href="@{'/attempt/' + ${attempt.getId()}}"><span th:text="${attempt.id}"></span></a><span th:text="'&#34, task: &#34'"></span><a th:href="@{'/task/' + ${attempt.getTask().getId()}}"><span th:text="${attempt.getTask().getLabel()}"></span></a><span th:text="'&#34, result: &#34' + ${attempt.result} + '&#34, error code: &#34' + ${attempt.errorCode} + '&#34&#59'"></span>
+      </h3>
+    </span>
+    <h3 class="row justify-content-md-left p-2">
+        <span class="w-100"></span>
+        <a class="btn offset-md-1 btn-outline-danger" th:href="@{'/main'}">To the main page</a>
+    </h3>
+</body>
+</html>

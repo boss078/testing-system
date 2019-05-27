@@ -2,10 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Attempt - Add - Done</title>
+    <title>Attempt add done</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <h5 th:text="'Error code: ' + ${attempt.getErrorCode()}"></h5>
-    <h5 th:text="'Log: ' + ${attempt.getLog()}"></h5>
+    <h2 class="row justify-content-md-center">
+        <span class="col-md-auto" th:text="'Attempt ' + ${attempt.id} + '&#59'"></span>
+    </h2>
+    <h3 class="row justify-content-md-left p-2">
+        <span class="row offset-md-1" th:text="'Result: &#34' + ${attempt.result} + '&#34&#59'"></span>
+        <span class="w-100"></span>
+        <span class="row offset-md-1" th:text="'Error code: &#34' + ${attempt.getErrorCode()} + '&#34&#59'"></span>
+        <span class="w-100"></span>
+        <a class="offset-md-1 btn btn-primary" th:href="@{'/attempt/' + ${attempt.id}}">To the page of attempt</a>
+        <a class="btn btn-outline-warning" th:href="@{'/task/' + ${attempt.task.id}}">To the task</a>
+        <a class="btn btn-outline-danger" th:href="@{'/main'}">To the main page</a>
+    </h3>
 </body>
 </html>

@@ -2,14 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Task - Add</title>
-    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+    <title>Adding task</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<form method="post" action="#" th:action="@{/task/add}" th:object="${task}">
-    <input class="text-input" type="text" th:field="*{label}" value="Enter the label of your task"><br>
-    <input class="text-input" type="text" th:field="*{description}" value="Enter the description of your task"><br>
-    <input type="submit" value="Create task">
-</form>
+    <h2 class="row justify-content-md-center">
+        <span class="col-md-auto">Adding task</span>
+    </h2>
+    <form method="post" action="#" th:action="@{/task/add}" th:object="${task}">
+        <h3 class="form-group row justify-content-md-left offset-md-1 w-75">
+            <label>Label of your task</label>
+            <input class="form-control" type="text" placeholder="Enter the label" th:field="*{label}">
+            <label>Description of your task</label>
+            <input class="form-control" type="text" placeholder="Enter the description" th:field="*{description}">
+            <span class="w-100"></span>
+            <br>
+            <input type="submit" class="btn btn-outline-success" value="Create task">
+            <span class="w-100"></span>
+            <a class="btn btn-outline-danger" th:href="@{'/main'}">Back to the main page</a>
+        </h3>
+    </form>
 </body>
 </html>

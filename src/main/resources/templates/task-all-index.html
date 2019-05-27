@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<h2 class="row justify-content-md-center">
+    <span class="col-md-auto">Tasks:</span>
+</h2>
+<br>
+<span th:each="task: ${tasks}">
+      <h3 class="row justify-content-md-left p-2">
+         <span class="offset-md-1" th:text="'Id: &#34' + ${task.getId()} + '&#34, label: &#34'"></span><a th:href="@{'/task/' + ${task.getId()}}"><span th:text="${task.label}"></span></a><span th:text="'&#34&#59'"></span>
+      </h3>
+    </span>
+<h3 class="row justify-content-md-left p-2">
+    <span class="w-100"></span>
+    <a class="btn offset-md-1 btn-outline-danger" th:href="@{'/main'}">Back to the main page</a>
+</h3>
+</body>
+</html>

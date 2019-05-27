@@ -1,6 +1,7 @@
 package com.boss078.jts.service;
 
 import com.boss078.jts.entities.Attempt;
+import com.boss078.jts.entities.Test;
 import com.boss078.jts.repositories.AttemptRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -52,7 +53,7 @@ public class attemptServing {
                 attempt.addLog("Method loaded successfully.\n");
 
                 for (int i = 0; i < attempt.getTask().getTests().size(); i++) {
-                    String input = attempt.getTask().getTests().get(i).getIn();
+                    String input = attempt.getTask().getTests().get(i).getInput();
                     PrintStream ps = new PrintStream(baos);
                     InputStream is = new ByteArrayInputStream(input.getBytes(Charset.forName("UTF-8")));
 
@@ -65,16 +66,17 @@ public class attemptServing {
                     System.setOut(ps);
 
                     main.invoke(null, new Object[]{null});
-                    System.out.flush();
-                    System.setOut(oldOut);
-                    System.setIn(oldIn);
-                    if (!baos.toString().equals(attempt.getTask().getTests().get(i).getOut())) {
-                        attempt.addLog("Test " + i + " failed.");
+                    if (!baos.toString().trim().equals(attempt.getTask().getTests().get(i).getOutput())) {
+                        attempt.addLog("Test " + i + " failed.\n");
                         testsAreOk = false;
                     }
                     else {
-                        attempt.addLog("Test " + i + " is successful.");
+                        attempt.addLog("Test " + i + " is successful.\n");
                     }
+
+                    System.out.flush();
+                    System.setOut(oldOut);
+                    System.setIn(oldIn);
                 }
 
             } catch(ClassNotFoundException e) {
@@ -104,7 +106,7 @@ public class attemptServing {
                 return attempt;
             }
             else {
-                attempt.addLog("At least one test failed. Check log above.\n");
+                attempt.addLog("At least one test failed.\n");
                 attempt.setErrorCode(2);
                 return attempt;
             }

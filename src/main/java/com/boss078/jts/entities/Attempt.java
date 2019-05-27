@@ -8,16 +8,20 @@ public class Attempt {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "task", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "task_id", nullable = false)
     private Task task;
 
+    @Column
+    @Lob
     private String code;
 
     private String result;
 
     private int errorCode;
 
+    @Column
+    @Lob
     private String log = "";
 
     public Integer getId() { return id; }

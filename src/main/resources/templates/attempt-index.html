@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attempt</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h2 class="row justify-content-md-center">
+    <span class="col-md-auto" th:text="'Attempt ' + ${attempt.getId()} + ':'"></span>
+    </h2>
+    <br>
+    <h3 class="row justify-content-md-left p-2">
+        <span class="row offset-md-1">
+            <span th:text="'Task: &#34'"></span><a th:href="@{'/task/' + ${attempt.getTask().getId()}}"><span th:text="${attempt.getTask().getLabel()}"></span></a><span th:text="'&#34&#59'"></span>
+        </span>
+        <span class="w-100"></span>
+        <span class="row offset-md-1" th:text="'Result: &#34' + ${attempt.result} + '&#34, error code: &#34' + ${attempt.errorCode} + '&#34&#59'"></span>
+        <span class="w-100"></span>
+        <span class="row offset-md-1" th:text="'Code:'"></span>
+        <span class="w-100"></span>
+        <pre class="row offset-md-1"><code th:text="${attempt.code}"></code></pre>
+        <span class="w-100"></span>
+        <span class="row offset-md-1" th:text="'Log:'"></span>
+        <span class="w-100"></span>
+        <pre class="row offset-md-1"><code th:text="${attempt.log}"></code></pre>
+        <span class="w-100"></span>
+        <a class="btn offset-md-1 btn-outline-danger" th:href="@{'/task/' + ${attempt.task.id}}">To the task</a>
+        <a class="btn btn-outline-warning" th:href="@{'/attempt/all'}">To the list of attempts</a>
+    </h3>
+</body>
+</html>

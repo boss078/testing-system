@@ -8,23 +8,27 @@ public class Test {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "task", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "task_id", nullable = false)
     private Task task;
 
-    private String in;
+    @Column
+    @Lob
+    private String input;
 
-    private String out;
+    @Column
+    @Lob
+    private String output;
 
     public Task getTask() { return task; }
 
     public void setTask(Task task) { this.task = task; }
 
-    public String getIn() { return in; }
+    public String getInput() { return input; }
 
-    public void setIn(String in) { this.in = in; }
+    public void setInput(String input) { this.input = input; }
 
-    public String getOut() { return out; }
+    public String getOutput() { return output; }
 
-    public void setOut(String out) { this.out = out; }
+    public void setOutput(String output) { this.output = output; }
 }

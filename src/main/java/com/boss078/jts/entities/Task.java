@@ -9,10 +9,10 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "task", cascade={CascadeType.ALL})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "task")
     private List<Test> tests;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "task", cascade={CascadeType.ALL})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "task")
     private List<Attempt> attempts;
 
     private String label;
