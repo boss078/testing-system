@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Task</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h2 class="row justify-content-md-center">
@@ -20,8 +21,7 @@
         <br>
         <span class="w-100"></span>
         <br>
-        <a class="btn offset-md-1 btn-outline-warning" th:href="@{'/task/all'}">Back to the list of tasks</a>
-        <a class="btn btn-outline-danger" th:href="@{'/main'}">Back to the main page</a>
+        <a class="btn offset-md-1 btn-outline-warning" th:href="@{'/task/all'}">To the list of tasks</a>
         <a class="btn btn-secondary" th:href="@{'/task/' + ${task.id} + '/test/add'}">Add new test for this task</a>
     </span>
 </body>

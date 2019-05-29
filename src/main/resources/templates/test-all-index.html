@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Tests</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h2 class="row justify-content-md-center">
@@ -18,7 +19,7 @@
     <h3 class="row justify-content-md-left p-2">
         <span class="w-100"></span>
         <a class="btn offset-md-1 btn-outline-warning" th:href="@{'/task/' + ${taskId}}">To the task</a>
-        <a class="btn offset-md-1 btn-outline-danger" th:href="@{'/main'}">To the main page</a>
+        <a class="btn btn-outline-danger" th:href="@{'/main'}">To the main page</a>
     </h3>
 </body>
 </html>
